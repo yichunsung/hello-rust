@@ -8,9 +8,10 @@ fn main() {
 
     let hello_world: &str = "hello world";
     println!("{}", hello_world);
-    hello(x);
+    let data = hello(x);
+    println!("{}", data);
 }
 
-fn hello(arg: u64) {
-  println!("{:?}", arg);
+fn hello(arg: u64) -> u64 {
+  return arg + 2;
 }
