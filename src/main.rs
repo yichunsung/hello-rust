@@ -15,6 +15,42 @@ fn main() {
     hello_shadowing();
     if_else_function();
     loop_function();
+    loop_result();
+    hello_while();
+    for_loop();
+}
+
+fn for_loop() {
+    const ARRAY_DATA: [i32; 5] = [55, 66, 22, 231, 123];
+    for ele in ARRAY_DATA {
+        println!("{}", ele);
+    }
+}
+
+fn hello_while() {
+    let mut n_data: u32 = 0;
+    while n_data <= 10 {
+        n_data += 1;
+        println!("{}", n_data);
+    }
+    let a = [10, 20, 30, 40, 50];
+    let mut index = 0;
+    while index < 5 {
+        println!("數值為：{}", a[index]);
+
+        index += 1;
+    }
+}
+
+fn loop_result() {
+    let mut hello: u32 = 0;
+    let result = loop {
+        hello += 2;
+        if hello >= 20 {
+            break hello;
+        }
+    };
+    println!("result: {}", result);
 }
 
 fn loop_function() {
