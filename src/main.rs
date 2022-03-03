@@ -18,6 +18,40 @@ fn main() {
     loop_result();
     hello_while();
     for_loop();
+    string_data();
+
+    let hello_arg: i32 = 22;
+
+    take_copy(hello_arg);
+    println!("main: {:?}", hello_arg);
+
+    let hello_string = String::from("你好唷～～～");
+
+    // take_clone(hello_string);
+    let new_string = return_string(hello_string);
+
+    println!("main: {:?}", new_string);
+}
+
+fn take_copy(num: i32) {
+    println!("take_copy: {}", num);
+}
+
+/*fn take_clone(string_data: String) {
+     println!("take_clone: {}", string_data);
+}*/
+
+fn return_string(mut string_data: String) -> String {
+    string_data.push_str("Yohi");
+    return string_data;
+}
+
+fn string_data() {
+    let mut string_data_type = String::from("你好");
+    string_data_type.push_str(" 我好");
+    let string_2 = string_data_type.clone();
+    println!("{}", string_data_type);
+    println!("{}", string_2);
 }
 
 fn for_loop() {
