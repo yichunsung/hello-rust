@@ -31,6 +31,37 @@ fn main() {
     let new_string = return_string(hello_string);
 
     println!("main: {:?}", new_string);
+
+    let test_string = String::from("YOYOYO!");
+
+    let (test_string_2, leng) = cal_len_with_taup(test_string);
+    println!("string: {}, data: {}", test_string_2, leng);
+
+    let str3 = String::from("你好我好大家好");
+    let str3_leng = cal_leng_with_reference(&str3);
+    println!("string: {}, data: {}", str3, str3_leng);
+
+    let mut string_4 = String::from("大阪桐蔭高等学校吹奏楽部");
+
+    use_mut_in_reference(&mut string_4);
+
+    println!("{}", string_4);
+
+}
+
+// 可變引用
+fn use_mut_in_reference(message: &mut String) {
+    message.push_str("yo~");
+}
+
+fn cal_leng_with_reference(string_data: &String) -> usize {
+    string_data.len()
+}
+
+// use taup
+fn cal_len_with_taup(string_data: String) -> (String, usize) {
+    let len = string_data.len();
+    (string_data, len)
 }
 
 fn take_copy(num: i32) {
