@@ -1,15 +1,5 @@
 fn main() {
-    println!("Hello, world!");
-
-    let mut x: u64 = 5;
-    println!("x 的數值為：{}", x);
-    x = 6;
-    println!("x 的數值為：{}", x);
-
-    let hello_world: &str = "hello world";
-    println!("{}", hello_world);
-    let data = hello(x);
-    println!("{}", data);
+    hello_world();
     data_type();
     tuples_and_array();
     hello_shadowing();
@@ -47,6 +37,19 @@ fn main() {
 
     println!("{}", string_4);
 
+}
+
+fn hello_world() {
+    println!("Hello, world!");
+    let mut x: u64 = 5;
+    println!("x 的數值為：{}", x);
+    x = 6;
+    println!("x 的數值為：{}", x);
+
+    let hello_world: &str = "hello world";
+    println!("{}", hello_world);
+    let data = hello(x);
+    println!("{}", data);
 }
 
 // 可變引用
@@ -155,10 +158,11 @@ fn hello_shadowing() {
     let x: i32 = 33;
     let y = {
         let x = x + 2;
-        println!("{:?}", x);
+        println!("hello_shadowing first {:?}", x);
         x + 3
     };
-    println!("{:?}", y);
+    println!("hello_shadowing second {:?}", y);
+    println!("X: {:?}", x);
 }
 
 fn hello(arg: u64) -> u64 {
