@@ -1,4 +1,43 @@
+struct User {
+    id: u32,
+    active: bool,
+    username: String,
+    email: String,
+    sign_in_count: u64,
+}
+
+fn build_user(name: String, email: String) -> User {
+    User {
+        id: 1,
+        active: true,
+        email: email,
+        username: name,
+        sign_in_count: 1,
+    }
+}
+
 fn main() {
+    // 元祖
+    let tup: (i32, f64, u8) = (500, 3.1, 4);
+    println!("{}", tup.0);
+    // 陣列
+    let array = [2, 33, 2, -2];
+    println!("{}", array[0]);
+
+    let mut user1 = User {
+        id: 1,
+        active: true,
+        email: String::from("someone@example.com"),
+        username: String::from("someusername123"),
+        sign_in_count: 1,
+    };
+    println!("{}", user1.username);
+    user1.username = String::from("Hello");
+    println!("{}", user1.username);
+
+    let user2 = build_user(String::from("My Name"),  String::from("abc@email.com"));
+    println!("{}", user2.username);
+    /* 
     hello_world();
     data_type();
     tuples_and_array();
@@ -15,30 +54,31 @@ fn main() {
     take_copy(hello_arg);
     println!("main: {:?}", hello_arg);
 
-    let hello_string = String::from("你好唷～～～");
+    let hello_string: String = String::from("你好唷～～～");
 
     // take_clone(hello_string);
-    let new_string = return_string(hello_string);
+    let new_string: String = return_string(hello_string);
 
     println!("main: {:?}", new_string);
 
-    let test_string = String::from("YOYOYO!");
+    let test_string: String = String::from("YOYOYO!");
 
     let (test_string_2, leng) = cal_len_with_taup(test_string);
     println!("string: {}, data: {}", test_string_2, leng);
 
-    let str3 = String::from("你好我好大家好");
-    let str3_leng = cal_leng_with_reference(&str3);
+    let str3: String = String::from("你好我好大家好");
+    let str3_leng: usize = cal_leng_with_reference(&str3);
     println!("string: {}, data: {}", str3, str3_leng);
 
-    let mut string_4 = String::from("大阪桐蔭高等学校吹奏楽部");
+    let mut string_4: String = String::from("大阪桐蔭高等学校吹奏楽部");
 
     use_mut_in_reference(&mut string_4);
 
     println!("{}", string_4);
-
+*/
 }
 
+/*
 fn hello_world() {
     println!("Hello, world!");
     let mut x: u64 = 5;
@@ -215,3 +255,4 @@ fn tuples_and_array() {
     println!("洗洗睡：{}", hello_array[4]);
 }
 
+*/
