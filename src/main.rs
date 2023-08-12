@@ -16,15 +16,39 @@ fn build_user(name: String, email: String) -> User {
     }
 }
 
+fn area(width: u32, height: u32) -> u32 {
+    return width * height;
+}
+
+fn area2(dimensions: (u32, u32)) -> u32 {
+    return dimensions.0 * dimensions.1;
+}
+
+#[derive(Debug)]
+struct Rectangle {
+    width: u32,
+    height: u32
+}
+
+fn area_rectangle(rectangle: &Rectangle) -> u32 {
+    return rectangle.width * rectangle.height;
+}
+
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+}
+
 fn main() {
     // 元祖
     let tup: (i32, f64, u8) = (500, 3.1, 4);
     println!("{}", tup.0);
     // 陣列
-    let array = [2, 33, 2, -2];
+    let array: [i32; 4] = [2, 33, 2, -2];
     println!("{}", array[0]);
 
-    let mut user1 = User {
+    let mut user1: User = User {
         id: 1,
         active: true,
         email: String::from("someone@example.com"),
@@ -35,8 +59,40 @@ fn main() {
     user1.username = String::from("Hello");
     println!("{}", user1.username);
 
-    let user2 = build_user(String::from("My Name"),  String::from("abc@email.com"));
+    let user2: User = build_user(String::from("My Name"),  String::from("abc@email.com"));
     println!("{}", user2.username);
+
+    println!("-----");
+
+    let height: u32 = 20;
+    let width: u32 = 6;
+    let area_data = area(height, width);
+    println!("area: {}", area_data);
+
+    println!("------");
+
+    let area_tup: (u32, u32) = (500, 32);
+    let area2_data = area2(area_tup);
+
+    println!("area with tup, result: {}", area2_data);
+
+    
+    let react1: Rectangle = Rectangle {
+        width: 33,
+        height: 99
+    };
+
+    let area_react: u32 = area_rectangle(&react1);
+
+    println!("area_react: {}", area_react);
+
+    println!("rect1 is {:?}", react1);
+
+    println!(
+        "長方形的面積為 {} 平方像素。",
+        react1.area()
+    );
+
     /* 
     hello_world();
     data_type();
