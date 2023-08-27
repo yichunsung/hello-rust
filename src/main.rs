@@ -40,6 +40,51 @@ impl Rectangle {
     }
 }
 
+// Enum
+enum IpAddressKind {
+    ip4,
+    ip6
+}
+
+struct IpAddress {
+    kind: IpAddressKind,
+    address: String,
+}
+
+#[derive(Debug)]
+enum IpAdr {
+    v4(String),
+    v6(String)
+}
+
+fn route(ip_kind: IpAddressKind) {
+    println!("------");
+    let home = IpAddress {
+        kind: IpAddressKind::ip4,
+        address: String::from("199.22.235.54"),
+    };
+
+    let loopback = IpAddress {
+        kind: IpAddressKind::ip6,
+        address: String::from("::1"),
+    };
+
+    let new_home = IpAdr::v4(String::from("212.22.66.733"));
+    let loopback_adr = IpAdr::v6(String::from("::1"));
+    println!("{:?}", new_home);
+}
+
+enum Message {
+    Quit,
+    Move { x: i32, y: i32 },
+    Write(String),
+    ChangeColor(i32, i32, i32),
+}
+
+struct QuitMessage;
+
+struct MoveMessage(Message);
+
 fn main() {
     // 元祖
     let tup: (i32, f64, u8) = (500, 3.1, 4);
@@ -93,6 +138,12 @@ fn main() {
         react1.area()
     );
 
+    // Enum
+    let data_v4: IpAddressKind = IpAddressKind::ip4;
+    let data_v5: IpAddressKind = IpAddressKind::ip6;
+
+    route(data_v4);
+    route(data_v5);
     /* 
     hello_world();
     data_type();
